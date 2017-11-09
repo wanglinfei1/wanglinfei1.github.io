@@ -1561,7 +1561,7 @@ var HeaderComponent = (function () {
         var _this = this;
         this.time = new Date();
         this.newTimer();
-        this.wsService.connect('ws://localhost:8082?userName=wanglinfei')
+        this.wsService.connect('ws://192.168.201.58:8002?userName=wanglinfei')
             .map(function (res) { return JSON.parse(res); })
             .subscribe(function (data) { _this.messageNumb = data.messageNumb; }, function (error) { return console.log(error); }, function () { return console.log('服务器已断开'); });
     };
@@ -2702,7 +2702,7 @@ var StockOtherComponent = (function () {
         this.hero = item;
     };
     StockOtherComponent.prototype.wsServiceInit = function () {
-        this.wsService.connect('ws://localhost:8082?userName=wlf')
+        this.wsService.connect('ws://192.168.201.58:8002?userName=wlf')
             .map(function (res) { return JSON.parse(res); })
             .subscribe(function (data) { return console.log(data.messageNumb); }, function (error) { return console.log(error); }, function () { return console.log('服务器已断开'); });
     };
