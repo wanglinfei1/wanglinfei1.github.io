@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>helloworld</p>
+    <p>1111111111</p>
+    <p>helloworld</p>
+</body>
+<script>
+    document.addEventListener('message', function(e) {
+        messagesReceivedFromReactNative += 1;
+        document.getElementsByTagName('p')[0].innerHTML =
+                '从React Native接收的消息: ' + messagesReceivedFromReactNative;
+        document.getElementsByTagName('p')[1].innerHTML = e.data;
+    });
+</script>
+</html>
