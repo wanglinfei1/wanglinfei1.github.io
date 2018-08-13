@@ -19,4 +19,20 @@
   <p style="text-align: center; font-size: 24px;">0</p>
   <a href="./apk/debug/app-debug.apk" class="download" download="wlfApp.apk">下载apk</a>
 </body>
+<script src="../static/js/rnCommon.js" ></script>
+<script>
+  window.REACTDATA = window.REACTDATA||{};
+  REACTDATA.aaaa = 'bbbb';
+  document.getElementsByTagName('button')[0].addEventListener('click', function() {
+      postNativeData({type:'urlNative',data:{
+        title:REACTDATA.aaaa,
+        //showBottomTab:true,
+        url:'http://wzytop.top/rn/home.html'
+      }})
+  });
+  document.addEventListener('message', function(e) {
+      document.getElementsByTagName('p')[0].innerHTML = e.data;
+      postNativeData({type:'message',data:e.data})
+  });
+</script>
 </html>
