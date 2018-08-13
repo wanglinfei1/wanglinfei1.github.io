@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
+
+
+
+    <style>
+        .weui-icon-search{
+            font-size: 20px;
+        }
+        .weui-flex__item{
+            text-align: center;
+        }
+        .Record .weui-flex__item{
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+<div class="weui-flex">
+    <div class="weui-flex__item QRCode"><i class="weui-icon-search"></i>wanglinfei</div>
+</div>
+<div class="weui-flex Record">
+    <div class="weui-flex__item"><a href="javascript:;" class="weui-btn weui-btn_primary">录音</a></div>
+    <div class="weui-flex__item"><a href="javascript:;" class="weui-btn weui-btn_warn">暂停</a></div>
+    <div class="weui-flex__item"><a href="javascript:;" class="weui-btn weui-btn_primary">播放</a></div>
+    <div class="weui-flex__item"><a href="javascript:;" class="weui-btn weui-btn_primary">识别</a></div>
+</div>
+<div class="weui-footer weui-footer_fixed-bottom">
+    <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+</div>
+</body>
+
+<script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
+
+<script src="./js/jweixin-1.0.0.js"></script>
+
+<script src="./js/fn.js"></script>
+
+<script>
+    var server=''
+    var appId='wxfcfb27dd64e70699'
+    $.ajax({
+        url: server+'/weiXinSign',
+        data:{
+        },
+        type: 'get',
+        success: function (data) {
+            wxSdk(data)
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+    function wxSdk(data){
+        wx.config({
+            debug: true,
+            appId: appId,
+            timestamp:data.timestamp,
+            nonceStr: data.nonceStr,
+            signature: data.signature,
+            jsApiList: [
+                "scanQRCode",
+                "getNetworkType",
+                "startRecord",
+                "stopRecord",
+                "playVoice",
+                "translateVoice"
+            ]
+        });
+        wx.ready(function(){
+            wx.getNetworkType({
+                success: function (res) {
+                    var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+                    alert(networkType)
+                }
+            });
+        });
+        wx.error(function(res){
+            console.log(res)
+        });
+        $('.QRCode').click(function(){
+            wx.scanQRCode({
+                needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                success: function (res) {
+                    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                    alert(result)
+                }
+            });
+        })
+        $('.Record div:eq(0) a').click(function(){
+            wx.startRecord();
+        })
+        var localId
+        $('.Record div:eq(1) a').click(function(){
+            wx.stopRecord({
+                success: function (res) {
+                    localId = res.localId;
+                }
+            });
+        })
+        $('.Record div:eq(2) a').click(function(){
+            wx.playVoice({
+                localId: localId // 需要播放的音频的本地ID，由stopRecord接口获得
+            });
+        })
+        $('.Record div:eq(3) a').click(function(){
+            wx.translateVoice({
+                localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    alert(res.translateResult); // 语音识别的结果
+                }
+            });
+        })
+    }
+</script>
+</html>

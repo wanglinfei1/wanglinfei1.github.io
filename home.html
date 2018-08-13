@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title type="0">终端H5 | test</title>
+    <link rel="icon" href="/html/img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+</head>
+<body>
+<div style="text-align: center; font-size: 24px;">I am Home</div>
+<button type="button">
+    给React Native发送消息
+</button>
+<p style="text-align: center; font-size: 24px;">0</p>
+<script>
+  var UA = function(){
+    var ua = window.navigator.userAgent.toLowerCase(),
+        uaArr=ua.split('___');
+        return {
+            ua: ua,
+            andriodVersion:uaArr[2],
+            isAndriod:uaArr[3]==='android',
+            isIos:uaArr[3]==='iphone',
+            isApp: uaArr[1]==='wlfapp',
+            appVersion:uaArr[4]
+        };
+  }();
+  var postNativeData = function(data){
+    if(typeof(data) != 'string'){
+      data =JSON.stringify(data)
+    }
+    if(UA.isApp){
+      window.postMessage(data);
+    }else{
+      console.log(data);
+    }
+  }
+  window.Alert = function(d){
+    if(UA.isApp){
+      postNativeData({type:'alert',data:d})
+    }else{
+      alert(d)
+    }
+  }
+  window.REACTDATA = window.REACTDATA||{};
+  REACTDATA.aaaa = 'bbbb';
+  document.getElementsByTagName('button')[0].addEventListener('click', function() {
+      postNativeData({type:'urlNative',data:{
+        title:REACTDATA.aaaa,
+        //showBottomTab:true,
+        url:'http://wzytop.top/home.html'
+      }})
+  });
+  document.addEventListener('message', function(e) {
+      document.getElementsByTagName('p')[0].innerHTML = e.data;
+      postNativeData({type:'message',data:e.data})
+  });
+</script>
+</body>
+</html>
