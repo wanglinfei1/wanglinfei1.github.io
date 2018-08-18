@@ -35,7 +35,6 @@ let getFTPDeployConfig = (data) => {
                 folder: '_FTP_',
                 dir: '',
                 pattern: '**/*'
-
             }
         }
     }
