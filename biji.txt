@@ -1,0 +1,53 @@
+﻿1.ip
+netstat -anp -n
+kill -g ip
+
+2.node forever
+sudo npm install -g forever;
+sudo forever start bin/www
+sudo forever stop bin/www
+
+3.mongodb 
+运行
+sudo service mongod start
+终止
+sudo service mongod stop
+重启
+sudo service mongod restart
+
+systemctl start mongod.service
+systemctl stop mongod.service //停止
+systemctl restart mongod.service //重启
+
+4.nginx
+这里需要设置防火墙开放80端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+重启防火墙  systemctl start firewalld.service  
+备注： 关闭防火墙命令  systemctl stop firewalld.service 
+启动nginx服务
+nginx
+重启nginx服务
+systemctl restart nginx.service
+pkill nginx && service nginx restart 
+停止nginx服务
+nginx -s stop
+nginx -s quit
+以nginx服务为例，实现停止、启动、重启的动作如下：
+systemctl stop  nginx.service
+systemctl start  nginx.service
+systemctl restart nginx.service
+检查服务状态
+systemctl status nginx.service
+使服务开机启动
+systemctl enable nginx.service
+取消服务开机启动
+systemctl disable nginx.service
+
+5.通道机
+pZaWpOCjh0/wWk14tXFXQyCV9l8Htw4WJStygwXAkRw61mzi/54Lr6grgezMOrkY8
+
+6.内网通道机
+Q8iZExt6eJN2KyTJEXGxAnz0RDd23L4LD0DgahJsHYN5irIaG6tHZcoeTpk8TI3k9
+
+
+react-native
