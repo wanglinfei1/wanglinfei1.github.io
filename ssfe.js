@@ -16,7 +16,8 @@ const getDeployConfig = (data) => {
                 // 建议设置为 false ，不强制替换文件；除非你知道你要替换哪些文件
                 replace: false,
                 // 是否使用缓存，默认为 true 缓存一年；false 缓存一分钟
-                cache: true
+                cache: true,
+                maxCount:500
             }
         }
     }
