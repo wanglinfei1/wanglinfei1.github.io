@@ -17,7 +17,7 @@ const getDeployConfig = (data) => {
                 replace: false,
                 // 是否使用缓存，默认为 true 缓存一年；false 缓存一分钟
                 cache: true,
-                maxCount:1000  
+                maxCount:1000
             }
         }
     }
@@ -33,9 +33,14 @@ let getFTPDeployConfig = (data) => {
             config = {
                 enable: true,
                 // 不设置 folder, 会上传到随机目录
-                folder: '_FTP_',
+                folder: '',
                 dir: '',
-                pattern: '**/*'
+                pattern: '**/*',
+                // 建议设置为 false ，不强制替换文件；除非你知道你要替换哪些文件
+                replace: true,
+                // 是否使用缓存，默认为 true 缓存一年；false 缓存一分钟
+                cache: true,
+                maxCount:1000
             }
         }
     }
