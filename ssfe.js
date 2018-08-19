@@ -17,7 +17,7 @@ const getDeployConfig = (data) => {
                 replace: false,
                 // 是否使用缓存，默认为 true 缓存一年；false 缓存一分钟
                 cache: true,
-                maxCount:500
+                maxCount:1000
             }
         }
     }
