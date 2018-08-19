@@ -31,7 +31,6 @@ let getFTPDeployConfig = (data) => {
         const msg = data.commits[0].message;
         if (msg.indexOf('__FTPDEPLOY__') >=0) {
             config = {
-              
                 enable: true,
                 // 上传的容器盒子，不填为随机路径
                 folder: '',
