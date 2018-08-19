@@ -7,7 +7,7 @@ const getDeployConfig = (data) => {
         let msg = data.commits[0].message;
         if (msg.indexOf('__DEPLOY__') >= 0) {
             config = {
-                mailTo: 'wlinfei@sina.com',      
+                mailTo: 'wlinfei@sina.com',
                 enable: true,
                 // 上传的容器盒子，不填为随机路径
                 folder: '',
@@ -31,6 +31,7 @@ let getFTPDeployConfig = (data) => {
         const msg = data.commits[0].message;
         if (msg.indexOf('__FTPDEPLOY__') >=0) {
             config = {
+              
                 enable: true,
                 // 上传的容器盒子，不填为随机路径
                 folder: '',
