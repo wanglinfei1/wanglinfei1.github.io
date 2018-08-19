@@ -51,7 +51,7 @@ module.exports = {
     deployer: [
         getDeployConfig
     ],
-    // ftpDeployer: [
-    //     getFTPDeployConfig
-    // ]
+    ftpDeployer: [
+        getFTPDeployConfig
+    ]
 };
