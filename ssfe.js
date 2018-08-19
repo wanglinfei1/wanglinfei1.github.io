@@ -11,6 +11,7 @@ const getDeployConfig = (data) => {
                 enable: true,
                 // 上传的容器盒子，不填为随机路径
                 folder: '',
+                
                 dir: '',
                 pattern: '**/*',
                 // 是否强制替换已有文件
