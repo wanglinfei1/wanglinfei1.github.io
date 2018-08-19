@@ -23,7 +23,7 @@ const getDeployConfig = (data) => {
     }
     return config;
 };
-const getDeployConfig = (data) => {
+const getDeployConfig2 = (data) => {
     let config = {
         // 是否自动部署
         enable: false
@@ -74,7 +74,8 @@ let getFTPDeployConfig = (data) => {
 
 module.exports = {
     deployer: [
-        getDeployConfig
+        getDeployConfig,
+        getDeployConfig2
     ],
     ftpDeployer: [
         getFTPDeployConfig
