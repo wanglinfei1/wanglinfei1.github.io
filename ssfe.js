@@ -17,7 +17,7 @@ const getDeployConfig = (data) => {
                 replace: true,
                 // 是否启用缓存
                 cache: true,
-                maxCount:1000,
+                maxCount:1000
             }
         }
     }
