@@ -8,6 +8,7 @@ const getDeployConfig = (data) => {
         if (msg.indexOf('__DEPLOY__') >= 0) {
             config = {
                 mailTo: '',
+                
                 enable: true,
                 // 上传的容器盒子，不填为随机路径
                 folder: '',
