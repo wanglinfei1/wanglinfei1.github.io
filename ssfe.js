@@ -14,7 +14,7 @@ const getDeployConfig = (data) => {
                 dir: '',
                 pattern: '**/*',
                 // 是否强制替换已有文件
-                replace: false,
+                replace: true,
                 // 是否启用缓存
                 cache: true,
                 maxCount:1000
