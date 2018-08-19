@@ -1,6 +1,6 @@
 const getDeployConfig = (data) => {
     let config = {
-        // ÊÇ·ñÆô¶¯²¿Êğ
+        // æ˜¯å¦è‡ªåŠ¨éƒ¨ç½²
         enable: false
     };
     if (data && data.commits && data.commits.length >=0) {
@@ -9,13 +9,13 @@ const getDeployConfig = (data) => {
             config = {
                 mailTo: '',
                 enable: true,
-                // ²»ÉèÖÃ folder, »áÉÏ´«µ½Ëæ»úÄ¿Â¼
+                // ä¸Šä¼ çš„å®¹å™¨ç›’å­ï¼Œä¸å¡«ä¸ºéšæœºè·¯å¾„
                 folder: '',
                 dir: '',
                 pattern: '**/*',
-                // ½¨ÒéÉèÖÃÎª false £¬²»Ç¿ÖÆÌæ»»ÎÄ¼ş£»³ı·ÇÄãÖªµÀÄãÒªÌæ»»ÄÄĞ©ÎÄ¼ş
+                // æ˜¯å¦å¼ºåˆ¶æ›¿æ¢å·²æœ‰æ–‡ä»¶
                 replace: false,
-                // ÊÇ·ñÊ¹ÓÃ»º´æ£¬Ä¬ÈÏÎª true »º´æÒ»Äê£»false »º´æÒ»·ÖÖÓ
+                // æ˜¯å¦å¯ç”¨ç¼“å­˜
                 cache: true,
                 maxCount:1000
             }
@@ -32,13 +32,13 @@ let getFTPDeployConfig = (data) => {
         if (msg.indexOf('__FTPDEPLOY__') >=0) {
             config = {
                 enable: true,
-                // ²»ÉèÖÃ folder, »áÉÏ´«µ½Ëæ»úÄ¿Â¼
+                // ä¸Šä¼ çš„å®¹å™¨ç›’å­ï¼Œä¸å¡«ä¸ºéšæœºè·¯å¾„
                 folder: '',
                 dir: '',
                 pattern: '**/*',
-                // ½¨ÒéÉèÖÃÎª false £¬²»Ç¿ÖÆÌæ»»ÎÄ¼ş£»³ı·ÇÄãÖªµÀÄãÒªÌæ»»ÄÄĞ©ÎÄ¼ş
+                // æ˜¯å¦å¼ºåˆ¶æ›¿æ¢å·²æœ‰æ–‡ä»¶
                 replace: true,
-                // ÊÇ·ñÊ¹ÓÃ»º´æ£¬Ä¬ÈÏÎª true »º´æÒ»Äê£»false »º´æÒ»·ÖÖÓ
+                // æ˜¯å¦å¯ç”¨ç¼“å­˜
                 cache: true,
                 maxCount:1000
             }
