@@ -1,7 +1,6 @@
 /* global NexT, CONFIG */
 
 $(document).ready(function() {
-
   function initScrollSpy() {
     var tocSelector = '.post-toc';
     var $tocElement = $(tocSelector);

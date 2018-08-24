@@ -239,7 +239,7 @@
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/boke/archives/" rel="section">
+    <a href="/boke/vueMusic/index.html" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
         
@@ -247,7 +247,7 @@
         
           
           <li class="menu-item menu-item-schedule">
-    <a href="/boke/schedule/" rel="section">
+    <a href="/boke/match/index.html" rel="section">
       <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />日程表</a>
   </li>
         
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/boke/2018/08/22/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/boke/2018/08/23/index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wlinfei">
@@ -326,8 +326,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/boke/2018/08/22/test/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/boke/2018/08/23/index/" itemprop="url">
+                  主页
                 </a>
               
             
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2018-08-22 17:41:41" itemprop="dateCreated datePublished" datetime="2018-08-22T17:41:41+08:00">2018-08-22</time>
+              <time title="创建时间：2018-08-23 10:01:46" itemprop="dateCreated datePublished" datetime="2018-08-23T10:01:46+08:00">2018-08-23</time>
             
 
             
@@ -370,7 +370,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-19 20:11:39" itemprop="dateModified" datetime="2018-08-19T20:11:39+08:00">2018-08-19</time>
+                <time title="修改时间：2018-08-24 13:23:18" itemprop="dateModified" datetime="2018-08-24T13:23:18+08:00">2018-08-24</time>
               
             
           </span>
@@ -415,6 +415,16 @@
 <body>
 <div style="text-align: center; font-size: 24px;">欢迎您访问</div>
 </body>
+<script>
+  window.onload = function(){
+    var footer_custom = document.getElementById('footer-custom')
+    var loc=window.location;
+    if(loc.host == 'm.wzytop.top'&&(loc.pathname=='/'||loc.pathname=='/index.html'||loc.pathname=='/index')){
+      footer_custom.innerHTML = 'Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>'
+      footer_custom.style.display="block"
+    }
+  }
+</script>
 </html>
 
           
@@ -499,7 +509,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/boke/archives/">
+                  <a href="/boke/vueMusic/index.html">
                 
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
@@ -579,7 +589,7 @@
 
 
 
-  <div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a></div>
+  <div class="footer-custom" id="footer-custom"><a rel="external nofollow" href=""><b></b></a></div>
 
 
         
