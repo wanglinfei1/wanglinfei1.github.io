@@ -1849,7 +1849,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c3ffff;
+  background: #ff8b6a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2000,6 +2000,9 @@ img:hover {
 }
 .cc-license img {
   display: inline-block;
+}
+footer.footer {
+  min-height: 24px;
 }
 @-moz-keyframes iconAnimate {
   0%, 100% {
