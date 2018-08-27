@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>上传文件测试</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=1280" />
+    <meta name="renderer" content="webkit">
+</head>
+<body>
+    <form id= "uploadForm">
+        <input type="file" name="file" onchange="submitW()">
+    </form>
+<script src="../static/js/zepto.min.js"></script>
+
+<script>
+function submitW() {
+  var aFile=$('#uploadForm input').get(0).files[0];
+//    console.log(aFile)
+  var data = new FormData();
+  data.append("file", aFile);
+  var xhr = getXMLHttpRequest();
+  xhr.open("post", '/api/uploadImg?small=true');
+  xhr.send(data);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var data = eval('(' + xhr.responseText + ')');
+          console.log(data);
+      }
+  };
+}
+function getXMLHttpRequest() {
+  var xmlHttpRequest;
+  if (window.XMLHttpRequest) {
+      xmlHttpRequest = new XMLHttpRequest();
+      if (xmlHttpRequest.overrideMimeType) {
+          xmlHttpRequest.overrideMimeType("text/xml");
+      }
+  } else if (window.ActiveXObject) {
+      var activexName = [ "MSXML2.XMLHTTP", "Microsoft.XMLHTTP" ];
+      for ( var i = 0; i < activexName.length; i++) {
+          try {
+              xmlHttpRequest = new ActiveXObject(activexName[i]);
+              if(xmlHttpRequest){
+                  break;
+              }
+          } catch (e) {
+          }
+      }
+  }
+  return xmlHttpRequest;
+}
+</script>
+
+</body>
+</html>
