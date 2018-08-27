@@ -20,7 +20,7 @@ function submitW() {
   var data = new FormData();
   data.append("file", aFile);
   var xhr = getXMLHttpRequest();
-  xhr.open("post", '/api/uploadImg?small=true');
+  xhr.open("post",'/api/upload?small=true');
   xhr.send(data);
   xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
