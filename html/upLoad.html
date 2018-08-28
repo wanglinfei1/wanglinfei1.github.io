@@ -35,7 +35,7 @@ function submitW() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var data = eval('(' + xhr.responseText + ')');
             console.log(data);
-            $('#uploadForm input').eq(2).val('')
+            $('#uploadForm input').eq(2).val('');
         }
     };
   }
