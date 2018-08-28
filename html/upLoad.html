@@ -25,18 +25,20 @@ function submitW() {
   var path=$('#uploadForm input').eq(0).val()||'';
   var aFile=$('#uploadForm input').get(2).files[0];
   var replace=$('#uploadForm input').get(1).checked;
-//    console.log(aFile)
-  var data = new FormData();
-  data.append("file", aFile);
-  var xhr = getXMLHttpRequest();
-  xhr.open("post",'/api/upload?path='+path+'&replace='+replace);
-  xhr.send(data);
-  xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-          var data = eval('(' + xhr.responseText + ')');
-          console.log(data);
-      }
-  };
+  if(aFile){
+    var data = new FormData();
+    data.append("file", aFile);
+    var xhr = getXMLHttpRequest();
+    xhr.open("post",'//wzytop.top/api/upload?path='+path+'&replace='+replace);
+    xhr.send(data);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var data = eval('(' + xhr.responseText + ')');
+            console.log(data);
+            $('#uploadForm input').eq(2).val('')
+        }
+    };
+  }
 }
 function getXMLHttpRequest() {
   var xmlHttpRequest;
