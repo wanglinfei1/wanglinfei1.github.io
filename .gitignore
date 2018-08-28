@@ -5,7 +5,7 @@ npm-debug.log*
 # Dependency directory
 node_modules/
 .idea/
-.apk
-.mp3
-.wav
-.mp4
+*.apk
+*.mp3
+*.wav
+*.mp4
