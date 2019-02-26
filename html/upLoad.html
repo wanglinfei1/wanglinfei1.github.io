@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>上传文件测试</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="renderer" content="webkit">
 </head>
+
 <body>
-    <form id= "uploadForm" style="width:300px;margin:100px auto;">
+    <form id="uploadForm" style="width:300px;margin:100px auto;">
         <input type="text" name="path">
         <br><br>
         <div style="overflow:hidden">
-          <input type="checkbox" name="replace" value="" style="float:left"> <span style="font-size:12px;float:left">是否强制替换</span>
+            <input type="checkbox" name="replace" value="" style="float:left"> <span style="font-size:12px;float:left">是否强制替换</span>
         </div>
         <br>
         <input type="file" name="file" onchange="submitW()">
     </form>
-<script src="../static/js/zepto.min.js"></script>
+    <script src="../static/js/zepto.min.js"></script>
 
-<script>
-function submitW() {
-  var path=$('#uploadForm input').eq(0).val()||'';
-  var aFile=$('#uploadForm input').get(2).files[0];
-  var replace=$('#uploadForm input').get(1).checked;
-  if(aFile){
-    var data = new FormData();
-    data.append("file", aFile);
-    var xhr = getXMLHttpRequest();
-    xhr.open("post",'//wzytop.top/api/upload?path='+path+'&replace='+replace);
-    xhr.send(data);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var data = eval('(' + xhr.responseText + ')');
-            console.log(data);
-            $('#uploadForm input').eq(2).val('');
+    <script>
+        function submitW() {
+            var path = $('#uploadForm input').eq(0).val() || '';
+            var aFile = $('#uploadForm input').get(2).files[0];
+            var replace = $('#uploadForm input').get(1).checked;
+            if (aFile) {
+                var data = new FormData();
+                data.append("file", aFile);
+                var xhr = getXMLHttpRequest();
+                xhr.open("post", '//wzytop.cn/api/upload?path=' + path + '&replace=' + replace);
+                xhr.send(data);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var data = eval('(' + xhr.responseText + ')');
+                        console.log(data);
+                        $('#uploadForm input').eq(2).val('');
+                    }
+                };
+            }
         }
-    };
-  }
-}
-function getXMLHttpRequest() {
-  var xmlHttpRequest;
-  if (window.XMLHttpRequest) {
-      xmlHttpRequest = new XMLHttpRequest();
-      if (xmlHttpRequest.overrideMimeType) {
-          xmlHttpRequest.overrideMimeType("text/xml");
-      }
-  } else if (window.ActiveXObject) {
-      var activexName = [ "MSXML2.XMLHTTP", "Microsoft.XMLHTTP" ];
-      for ( var i = 0; i < activexName.length; i++) {
-          try {
-              xmlHttpRequest = new ActiveXObject(activexName[i]);
-              if(xmlHttpRequest){
-                  break;
-              }
-          } catch (e) {
-          }
-      }
-  }
-  return xmlHttpRequest;
-}
-</script>
+
+        function getXMLHttpRequest() {
+            var xmlHttpRequest;
+            if (window.XMLHttpRequest) {
+                xmlHttpRequest = new XMLHttpRequest();
+                if (xmlHttpRequest.overrideMimeType) {
+                    xmlHttpRequest.overrideMimeType("text/xml");
+                }
+            } else if (window.ActiveXObject) {
+                var activexName = ["MSXML2.XMLHTTP", "Microsoft.XMLHTTP"];
+                for (var i = 0; i < activexName.length; i++) {
+                    try {
+                        xmlHttpRequest = new ActiveXObject(activexName[i]);
+                        if (xmlHttpRequest) {
+                            break;
+                        }
+                    } catch (e) {}
+                }
+            }
+            return xmlHttpRequest;
+        }
+    </script>
 
 </body>
+
 </html>
