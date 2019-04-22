@@ -3,7 +3,7 @@ github
 
 https://wanglinfei1.github.io
 
-http://www.wzytop.top
+http://www.wzytop.cn
 
 
 coding
@@ -11,4 +11,4 @@ coding
 
 http://wlinfei.coding.me
 
-http://m.wzytop.top
+http://m.wzytop.cn
