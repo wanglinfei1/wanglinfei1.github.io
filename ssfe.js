@@ -23,6 +23,7 @@ const getDeployConfig = (data) => {
     }
     return config;
 };
+
 const getDeployConfig2 = (data) => {
     let config = {
         // 是否自动部署
