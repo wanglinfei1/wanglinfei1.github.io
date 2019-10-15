@@ -1,5 +1,24 @@
-﻿1.ip
-netstat -anp -n
+﻿新浪翻墙
+http://10.210.97.118/proxy.pac
+
+ios调试命令
+ios_webkit_debug_proxy -f chrome-devtools://devtools/bundled/inspector.html
+
+github coding代码同步
+$git remote -v #查看当前远端仓库
+origin  git@git.coding.net:user/project.git (fetch)
+origin  git@git.coding.net:user/project.git (push)
+github  git@github.com:user/repo.git (fetch)
+github  git@github.com:user/repo.git (push)
+$git remote add both git@git.coding.net:user/project.git
+# 添加一个名为 both 的远端
+$git remote set-url --add --push both git@git.coding.net:user/project.git
+# 为其添加 push 到 Coding 的 SSH 地址
+$git remote set-url --add --push both git@github.com:user/repo.git
+# 为其添加 push 到 GitHub 的 SSH 地址
+
+1.ip
+netstat -ano
 kill -g ip
 
 2.node forever
@@ -29,6 +48,7 @@ nginx
 重启nginx服务
 systemctl restart nginx.service
 pkill nginx && service nginx restart 
+sudo pkill nginx && sudo /usr/local/nginx/sbin/nginx -c ~/nginx-1.7.4/conf/nginx.conf
 停止nginx服务
 nginx -s stop
 nginx -s quit
@@ -49,6 +69,16 @@ pZaWpOCjh0/wWk14tXFXQyCV9l8Htw4WJStygwXAkRw61mzi/54Lr6grgezMOrkY8
 6.内网通道机
 Q8iZExt6eJN2KyTJEXGxAnz0RDd23L4LD0DgahJsHYN5irIaG6tHZcoeTpk8TI3k9
 
+7.ftp服务器
 
+# 重启
+systemctl vsftpd restart
+# 查看vsftpd服务的状态
+systemctl status vsftpd.service
+# 设置开机启动
+systemctl enable vsftpd.service
 react-native
-1.aaaa
+
+
+35.196.46.236
+ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAzfS3Wlnb8DxHj8LY/0zTYZ2cLzySaeHJCjAM8bnijgzB2Xml059PNbGE2ov3HsuNfw7BGXubcywRzOoUA0tt1a6JW84F1PQsEbYf8S8oL2SXkrsmde42n7l1cy0rYhldjZ5AOR3liXEeYvk2F1QC1obKIZM2XEgaimUjaNwJvG7KxxLtXyZLd8Z03ePEjKguEj9YYgvwRpJbnwG6bE6uVzWjNxXcnmWfCtgiZLw6+Zo6XUN6TZuwrolw4NqmgC6SQoVXBZDQxSsmWVH/MpMtiS8Dt8wqM6uDT+1+XPK4vOy8h0zMXtxyzfoZcDkV4X44vLnmI5W8XlrSk3YXHFu7Uw== wlinfei1206
