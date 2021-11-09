@@ -15,8 +15,7 @@ $git remote add both git@git.coding.net:user/project.git
 $git remote set-url --add --push both git@git.coding.net:user/project.git
 # 为其添加 push 到 Coding 的 SSH 地址
 $git remote set-url --add --push both git@github.com:user/repo.git
-# 为其添加 push 到 GitHub 的 SSH 地址
-
+# 为其添加 push 到 GitHub 的 SSH 地址 
 1.ip
 netstat -ano
 kill -g ip
