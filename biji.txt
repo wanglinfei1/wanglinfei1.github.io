@@ -25,6 +25,7 @@ sudo npm install -g forever;
 sudo forever start bin/www
 sudo forever stop bin/www
 
+
 3.mongodb 
 运行
 sudo service mongod start
