@@ -5,7 +5,7 @@ const getDeployConfig = (data) => {
   };
   if (data && data.commits && data.commits.length >= 0) {
     let msg = data.commits[0].message;
-    if (msg.indexOf('__DEPLOY__') >= 0) {
+    if (msg.indexOf('deploy') >= 0) {
       config = {
         mailTo: 'wlinfei@sina.com',
         enable: true,
@@ -31,7 +31,7 @@ const getDeployConfig2 = (data) => {
   };
   if (data && data.commits && data.commits.length >= 0) {
     let msg = data.commits[0].message;
-    if (msg.indexOf('__DEPLOY__') >= 0) {
+    if (msg.indexOf('deploy') >= 0) {
       config = {
         mailTo: 'wlinfei@sina.com',
         enable: true,
